@@ -3,7 +3,6 @@ import pandas as pd
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.preprocessing import StandardScaler
 
-
 def main():
 
     def preprocess_input(input_data, feature_order, scaler):
@@ -20,7 +19,6 @@ def main():
             'Sports', 'Music', 'Volunteering', 'Age', 'GPA'
         ]
         
-    
         scaler = StandardScaler()
         df[feature_order] = scaler.fit_transform(df[feature_order])
 
@@ -32,8 +30,8 @@ def main():
         
         return model, scaler, feature_order
 
-    if 'data' not in st.session_state:
-        st.session_state.data = pd.DataFrame(columns=[
+    if 'student_data' not in st.session_state:
+        st.session_state.student_data = pd.DataFrame(columns=[
             'Name', 'Gender', 'Ethnicity', 'ParentalEducation', 'StudyTimeWeekly', 
             'Absences', 'Tutoring', 'ParentalSupport', 'Extracurricular', 
             'Sports', 'Music', 'Volunteering', 'Age', 'GPA'
@@ -47,20 +45,16 @@ def main():
         4: 'F'
     }
 
-
     st.markdown("<h1 style='text-align: center;'>Student Grade Prediction</h1>", unsafe_allow_html=True)
 
-  
     st.info("""
         **Information**:
         - To try, Please insert data using the sidebar.
-        - The dataset used in this application is the student perfomance Defects Dataset from (https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset).
-        - The algorithm model used in this app is Gradinent Boosting Classifier based on the best accuracy modelling you can see at (https://www.kaggle.com/nissbaldanullah/studentperfomancepredict)**.
-        
+        - The dataset used in this application is the student performance Defects Dataset from (https://www.kaggle.com/datasets/rabieelkharoua/students-performance-dataset).
+        - The algorithm model used in this app is Gradient Boosting Classifier based on the best accuracy modeling you can see at (https://www.kaggle.com/nissbaldanullah/studentperformancepredict)**.
         """)
 
     st.sidebar.header('Insert Data')
-
 
     name = st.sidebar.text_input("What's your name?")
     gender = st.sidebar.selectbox("What is your gender?", [0, 1], format_func=lambda x: 'Male' if x == 0 else 'Female')
@@ -99,28 +93,27 @@ def main():
             st.sidebar.write("Please enter your name.")
         else:
             new_data = pd.DataFrame([input_data])
-            st.session_state.data = pd.concat([st.session_state.data, new_data], ignore_index=True)
+            st.session_state.student_data = pd.concat([st.session_state.student_data, new_data], ignore_index=True)
             st.sidebar.write("Data inserted successfully!")
 
-
     st.write("### Inserted Data")
-    st.dataframe(st.session_state.data)
+    st.dataframe(st.session_state.student_data)
 
     df = pd.read_csv('Student.csv')
 
     model, scaler, feature_order = train_model_and_scaler(df)
 
     if st.button('Predict'):
-        if not st.session_state.data.empty:
-            data_to_predict = st.session_state.data.drop(columns=['Name'])
+        if not st.session_state.student_data.empty:
+            data_to_predict = st.session_state.student_data.drop(columns=['Name'])
             data_scaled = preprocess_input(data_to_predict.to_dict(orient='records'), feature_order, scaler)
             predictions = model.predict(data_scaled)
             
-            st.session_state.data['GradeClass'] = predictions
-            st.session_state.data['Grade'] = st.session_state.data['GradeClass'].map(grade_mapping)
+            st.session_state.student_data['GradeClass'] = predictions
+            st.session_state.student_data['Grade'] = st.session_state.student_data['GradeClass'].map(grade_mapping)
             
             st.write("### Prediction Results")
-            for index, row in st.session_state.data.iterrows():
+            for index, row in st.session_state.student_data.iterrows():
                 st.markdown(f"""
                 <div style="border:1px solid #ddd; border-radius:5px; padding:10px; margin-bottom:10px; 
                             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);">
