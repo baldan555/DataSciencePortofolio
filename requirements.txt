@@ -21,4 +21,4 @@ requests
 statsmodels
 streamlit-option-menu
 opencv-python-headless
-libgl1-mesa-glx
+
