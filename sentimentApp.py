@@ -46,7 +46,7 @@ def main():
     """, unsafe_allow_html=True)
 
     # Input Text
-    tweet_text = st.text_area('Masukkan teks tweet untuk analisis:', '', height=150, max_chars=280, key='tweet_input', placeholder='Tulis teks tweet di sini...')
+    tweet_text = st.text_area('Insert your text:', '', height=150, max_chars=280, key='tweet_input', placeholder='Here')
 
     # Add submit button
     submit_button = st.button("Analyze Sentiment")
