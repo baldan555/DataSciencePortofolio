@@ -118,11 +118,7 @@ elif selected_nav == "Portofolio":
         elif selected_category == "Business Intelligence":
             st.write("Belum ada aplikasi di kategori ini.")
     
-    # Periksa apakah aplikasi yang dipilih sudah aktif
-    if selected_app != st.session_state.active_app:
-        # Reset active_app dan semua output ketika aplikasi berubah
-        st.session_state.active_app = selected_app
-        st.experimental_rerun()  # Restart aplikasi untuk menghilangkan output dari aplikasi sebelumnya
+  
 
     # Jalankan aplikasi berdasarkan pilihan
     if selected_app == "Mall Customer Clustering":
