@@ -17,6 +17,7 @@ import manufactureDefectApp
 import faceemotionApp
 import sentimentApp
 import f1detectApp
+import HandGestureRecog
 
 # Konfigurasi halaman Streamlit
 st.set_page_config(page_title="Kumpulan Aplikasi Streamlit", layout="wide")
@@ -153,6 +154,8 @@ elif selected_nav == "Portofolio":
         sentimentApp.main()
     elif selected_app == "YOLOV8 Object Detection":
         f1detectApp.main()
+    elif selected_app == "Hand Gesture Recognition":
+        HandGestureRecog.main()
 
 elif selected_nav == "Contact":
     st.title("Contact")
