@@ -21,4 +21,5 @@ requests
 statsmodels
 streamlit-option-menu
 opencv-python-headless
+tf-keras
 
