@@ -14,7 +14,6 @@ import nyctaxianomalyApp
 import studentperfomance_st
 import airqualitypredict
 import manufactureDefectApp
-import HandGestureRecog 
 import faceemotionApp
 import sentimentApp
 import f1detectApp
@@ -150,8 +149,6 @@ elif selected_nav == "Portofolio":
         manufactureDefectApp.main()
     elif selected_app == "Draw MNIST Number":
         MNIST_st.main()
-    elif selected_app == "Hand Gesture Recognition":
-        HandGestureRecog.main()
     elif selected_app == "Face Mood Detect":
         faceemotionApp.main()
     elif selected_app == "Stock Forecasting":
