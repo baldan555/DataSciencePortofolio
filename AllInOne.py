@@ -20,7 +20,7 @@ import f1detectApp
 import HandGestureRecog
 
 # Konfigurasi halaman Streamlit
-st.set_page_config(page_title="Kumpulan Aplikasi Streamlit", layout="wide")
+st.set_page_config(page_title="N.I.S Baldanullah's Portofolio", layout="wide")
 
 # Reset session state untuk aplikasi
 if "active_app" not in st.session_state:
