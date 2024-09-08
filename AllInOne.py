@@ -37,8 +37,42 @@ selected_nav = option_menu(
 )
 
 if selected_nav == "About Me":
-    st.title("About Me")
-    st.write("Deskripsi tentang Anda di sini.")
+    # CSS untuk mendesain tampilan kartu
+    st.markdown("""
+        <style>
+        .card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .card img {
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+        }
+        .card p {
+            font-size: 16px;
+            color: #333;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+
+    # Desain kartu
+    st.markdown("""
+        <div class="card">
+            <img src="https://media.licdn.com/dms/image/v2/D5603AQGDLd_z2CSC3w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1677050502605?e=1731542400&v=beta&t=pu3r1KdJ8OPenkD_6__I6Bo96MMiKvnuojkK_lHtLCA" alt="Foto">
+            <p>
+                Since childhood, I have grown up in an office environment that introduced me to computers, the internet, technology, and software. This experience grew my interest in pursuing the field of computer science. Nowadays, data has become a highly valuable asset, even considered more valuable than fuel. This belief has driven me to focus on the fields of data, machine learning, and artificial intelligence because I believe they can transform our civilization and make it easier. I have high hopes that the skills and abilities I possess, as well as those I will continue to develop, can help address various challenges faced by companies. I aspire to be part of the solution for data-related problems and leverage technology to enhance efficiency and innovation. I firmly believe that with expertise in this field, I can significantly contribute to the success of companies and tackle data-related phenomena. I believe that through dedication and continuous self-improvement, I will be able to provide innovative and effective solutions to overcome existing challenges. I am confident that with the skills and knowledge I have acquired, I can make a positive impact on companies and society as a whole. Together, we can create a better future by harnessing the immense potential embedded in data, machine learning, and artificial intelligence.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
     
 elif selected_nav == "CV":
     st.markdown("""
