@@ -367,9 +367,9 @@ elif selected_nav == "CV":
 
 
 elif selected_nav == "Portofolio":
-    with st.expander("Pilih Kategori", expanded=True):
+    with st.expander("Choose Category", expanded=True):
         selected_category = option_menu(
-            "Kategori",
+            "Category",
             ["Machine Learning", "Deep Learning", "Data Visualization", "Business Intelligence"],
             icons=["cpu", "brain", "bar-chart", "pie-chart"],
             menu_icon="list",
@@ -379,7 +379,7 @@ elif selected_nav == "Portofolio":
 
         if selected_category == "Machine Learning":
             selected_app = option_menu(
-                "Pilih Aplikasi",
+                "Choose App",
                 [
                     "Mall Customer Clustering",
                     "Churn Prediction",
