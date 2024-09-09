@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 from streamlit_option_menu import option_menu
 import MallCustomerClusteringDash
 import MNIST_st
@@ -14,13 +15,13 @@ import nyctaxianomalyApp
 import studentperfomance_st
 import airqualitypredict
 import manufactureDefectApp
+import HandGestureRecog 
 import faceemotionApp
 import sentimentApp
 import f1detectApp
-import HandGestureRecog
 
 # Konfigurasi halaman Streamlit
-st.set_page_config(page_title="N.I.S Baldanullah's Portofolio", layout="wide")
+st.set_page_config(page_title="Kumpulan Aplikasi Streamlit ", layout="wide")
 
 # Reset session state untuk aplikasi
 if "active_app" not in st.session_state:
@@ -37,6 +38,9 @@ selected_nav = option_menu(
 )
 
 if selected_nav == "About Me":
+    # Mengatur layout halaman
+
+
     # CSS untuk mendesain tampilan kartu
     st.markdown("""
         <style>
@@ -73,6 +77,10 @@ if selected_nav == "About Me":
             </p>
         </div>
         """, unsafe_allow_html=True)
+      
+
+
+    
     
 elif selected_nav == "CV":
     st.markdown("""
@@ -354,10 +362,14 @@ elif selected_nav == "CV":
         unsafe_allow_html=True,
     )
 
+
+
+
+
 elif selected_nav == "Portofolio":
-    with st.expander("Choose Category", expanded=True):
+    with st.expander("Pilih Kategori", expanded=True):
         selected_category = option_menu(
-            "Category",
+            "Kategori",
             ["Machine Learning", "Deep Learning", "Data Visualization", "Business Intelligence"],
             icons=["cpu", "brain", "bar-chart", "pie-chart"],
             menu_icon="list",
@@ -367,7 +379,7 @@ elif selected_nav == "Portofolio":
 
         if selected_category == "Machine Learning":
             selected_app = option_menu(
-                "Choose App",
+                "Pilih Aplikasi",
                 [
                     "Mall Customer Clustering",
                     "Churn Prediction",
@@ -397,7 +409,33 @@ elif selected_nav == "Portofolio":
                 menu_icon="briefcase",
                 default_index=0,
                 orientation="horizontal"
+
             )
+
+
+              # Jalankan aplikasi berdasarkan pilihan
+            if selected_app == "Mall Customer Clustering":
+                MallCustomerClusteringDash.main()
+            elif selected_app == "Churn Prediction":
+                churnpredict_st.main()
+            elif selected_app == "Credit Risk Assessment":
+                creditRiskApp.main()
+            elif selected_app == "Telco Customer Churn":
+                TelcoCustomerChurnDash.main()
+            elif selected_app == "NYC Taxi Anomaly Detection":
+                nyctaxianomalyApp.main()
+            elif selected_app == "Heart Failure Prediction":
+                heart_failure_st.main()
+            elif selected_app == "Lung Cancer Prediction":
+                lungcancerpredict_st.main()
+            elif selected_app == "Disease Diagnosis and Recommender":
+                diseasediagnosisandrecommender_st.main()
+            elif selected_app == "Student Performance":
+                studentperfomance_st.main()
+            elif selected_app == "Air Quality Impact Score Predict":
+                airqualitypredict.main()
+            elif selected_app == "Manufacture Defect Prediction":
+                manufactureDefectApp.main()
 
         elif selected_category == "Deep Learning":
             selected_app = option_menu(
@@ -423,50 +461,46 @@ elif selected_nav == "Portofolio":
                 orientation="horizontal"
             )
 
+           
+            if selected_app == "Draw MNIST Number":
+                MNIST_st.main()
+            elif selected_app == "Hand Gesture Recognition":
+                HandGestureRecog.main()
+            elif selected_app == "Face Mood Detect":
+                faceemotionApp.main()
+            elif selected_app == "Stock Forecasting":
+                stockapp.main()
+            elif selected_app == "Sentiment Analysis":
+                sentimentApp.main()
+            elif selected_app == "YOLOV8 Object Detection":
+                f1detectApp.main()
+
+
+
+
         elif selected_category == "Data Visualization":
-            st.write("Belum ada aplikasi di kategori ini.")
-        
-        elif selected_category == "Business Intelligence":
-            st.write("Belum ada aplikasi di kategori ini.")
+            selected_visualization = option_menu(
+                "Pilih Library Visualisasi",
+                ["Matplotlib", "Plotly"],
+                icons=["bar-chart", "graph-up"],
+                menu_icon="bar-chart-line",
+                default_index=0,
+                orientation="horizontal"
+            )
+
+            if selected_visualization == "Matplotlib":    
+               # List gambar
+                images = ["1.png", "2.png", "3.png",]
+
+                # Menampilkan gambar dalam 3 kolom dan 3 baris
+                cols = st.columns(3)  # Membuat 3 kolom
+
+                for idx, image in enumerate(images):
+                    col = cols[idx % 3]  # Memilih kolom berdasarkan indeks
+                    with col:
+                        st.image(image, use_column_width=True)  # Menampilkan gambar di kolom
+            
     
-  
-
-    # Jalankan aplikasi berdasarkan pilihan
-    if selected_app == "Mall Customer Clustering":
-        MallCustomerClusteringDash.main()
-    elif selected_app == "Churn Prediction":
-        churnpredict_st.main()
-    elif selected_app == "Credit Risk Assessment":
-        creditRiskApp.main()
-    elif selected_app == "Telco Customer Churn":
-        TelcoCustomerChurnDash.main()
-    elif selected_app == "NYC Taxi Anomaly Detection":
-        nyctaxianomalyApp.main()
-    elif selected_app == "Heart Failure Prediction":
-        heart_failure_st.main()
-    elif selected_app == "Lung Cancer Prediction":
-        lungcancerpredict_st.main()
-    elif selected_app == "Disease Diagnosis and Recommender":
-        diseasediagnosisandrecommender_st.main()
-    elif selected_app == "Student Performance":
-        studentperfomance_st.main()
-    elif selected_app == "Air Quality Impact Score Predict":
-        airqualitypredict.main()
-    elif selected_app == "Manufacture Defect Prediction":
-        manufactureDefectApp.main()
-    elif selected_app == "Draw MNIST Number":
-        MNIST_st.main()
-    elif selected_app == "Face Mood Detect":
-        faceemotionApp.main()
-    elif selected_app == "Stock Forecasting":
-        stockapp.main()
-    elif selected_app == "Sentiment Analysis":
-        sentimentApp.main()
-    elif selected_app == "YOLOV8 Object Detection":
-        f1detectApp.main()
-    elif selected_app == "Hand Gesture Recognition":
-        HandGestureRecog.main()
-
 elif selected_nav == "Contact":
     # CSS untuk mendesain tampilan kontak
     st.markdown("""
