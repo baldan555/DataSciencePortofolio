@@ -20,7 +20,16 @@ import faceemotionApp
 import sentimentApp
 import f1detectApp
 
-# Konfigurasi halaman Streamlit
+
+# Add custom CSS to hide the GitHub icon
+hide_github_icon = """
+#GithubIcon {
+  visibility: hidden;
+}
+"""
+st.markdown(hide_github_icon, unsafe_allow_html=True)
+
+# Your app code goes here
 st.set_page_config(page_title="Kumpulan Aplikasi Streamlit ", layout="wide")
 
 # Reset session state untuk aplikasi
