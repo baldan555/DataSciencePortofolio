@@ -22,13 +22,10 @@ import f1detectApp
 
 
 # Add custom CSS to hide the GitHub icon
-hide_github_icon = """
-#GithubIcon {
+
+#MainMenu {
   visibility: hidden;
 }
-"""
-st.markdown(hide_github_icon, unsafe_allow_html=True)
-
 # Your app code goes here
 st.set_page_config(page_title="Kumpulan Aplikasi Streamlit ", layout="wide")
 
