@@ -111,7 +111,7 @@ elif selected_nav == "CV":
     ## <div style='text-align: center; background-color: #f0f0f0; padding: 5px;'>EXPERIENCE</div>
     <hr style="border:2px solid black; margin-top: -40px;">
 
-    #### **Big Data Analyst**  
+    #### **Big Data Analyst at Kalla Group**  
     _Aug 2023 — Dec 2023 | Makassar_  
     - Managed large-scale data, including cleansing, storing, and pre-processing
     - Built Machine Learning models such as LSTM, GRU, and Convolutional Neural Network for predicting Asia Bitumen Price
