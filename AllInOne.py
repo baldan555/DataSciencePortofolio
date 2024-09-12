@@ -496,7 +496,7 @@ elif selected_nav == "Portofolio":
 
             if selected_visualization == "Matplotlib":    
                # List gambar
-                images = ["1.png", "2.png", "3.png",]
+                images = ["1.png", "2.png", "3.png", "4.png"]
 
                 # Menampilkan gambar dalam 3 kolom dan 3 baris
                 cols = st.columns(3)  # Membuat 3 kolom
