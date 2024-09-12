@@ -499,7 +499,7 @@ elif selected_nav == "Portofolio":
                 images = ["1.png", "2.png", "3.png", "4.png"]
 
                 # Menampilkan gambar dalam 3 kolom dan 3 baris
-                cols = st.columns(3)  # Membuat 3 kolom
+                cols = st.columns(4)  # Membuat 3 kolom
 
                 for idx, image in enumerate(images):
                     col = cols[idx % 3]  # Memilih kolom berdasarkan indeks
