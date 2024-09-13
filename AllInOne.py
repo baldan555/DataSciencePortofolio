@@ -18,7 +18,7 @@ import manufactureDefectApp
 #import HandGestureRecog 
 #import faceemotionApp
 import sentimentApp
-import f1detectApp
+#import f1detectApp
 
 
 # Add custom CSS to hide the Gi
