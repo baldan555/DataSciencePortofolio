@@ -505,7 +505,29 @@ elif selected_nav == "Portofolio":
                     col = cols[idx % 3]  # Memilih kolom berdasarkan indeks
                     with col:
                         st.image(image, use_column_width=True)  # Menampilkan gambar di kolom
+
+
+        elif selected_category == "Business Intelligence":
+            selected_tool = option_menu(
+                "Pilih Alat Business Intelligence",
+                ["Tableau", "Power BI"],
+                icons=["table", "graph-up"],
+                menu_icon="bar-chart-line",
+                default_index=0,
+                orientation="horizontal"
+            )
+
+            if selected_tool == "Power BI":
+                st.image("powerbi1.png", caption="Power BI 1")
+                st.image("powerbi2.png", caption="Power BI 2")
+                st.image("powerbi3.png", caption="Power BI 3")
+                st.image("powerbi4.png", caption="Power BI 4")
+                st.image("powerbi5.png", caption="Power BI 5")
+
+            elif selected_tool == "Tableau":
             
+                tableau_public_url = "https://public.tableau.com/app/profile/n.i.s.baldanullah/viz/3_5_story_solution_17283697329190/ChurnAnalysis"  
+                st.write(f"[Click here to see my tableau dashboard]( {tableau_public_url} )")
     
 elif selected_nav == "Contact":
     # CSS untuk mendesain tampilan kontak
